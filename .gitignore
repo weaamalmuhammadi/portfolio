@@ -1,0 +1,16 @@
+# Local safety copies of earlier versions of the site — not part of the build
+_backup/
+
+# Dependencies and build output (the site itself needs no build step)
+node_modules/
+dist/
+
+# Editor and OS clutter
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local Claude Code settings (the launch config IS committed, see .claude/launch.json)
+.claude/settings.local.json
