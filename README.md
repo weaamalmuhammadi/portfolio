@@ -42,36 +42,4 @@ On a phone, tap the floor to walk.
 | 05 | Card Bounce | AR physics game played with real cards and a camera (Python, OpenCV, Pymunk) |
 | 06 | Echo Maze | Horror maze lit only by sound (Unity) |
 
-## Changing it
 
-Almost everything lives in [`js/gallery/config.js`](js/gallery/config.js):
-your name and bio, contact details, and the project list. Adding a project
-there adds a frame and makes the hall longer; each entry can carry a `poster`
-image and a `video` that plays when a visitor steps up to it.
-
-The look is a theme. Six are defined in
-[`js/gallery/themes.js`](js/gallery/themes.js) — `noir` (the current one),
-`monochrome`, `editor`, `neon`, `pixel` and `pastel`. Preview any of them by
-adding `?theme=neon` to the address, add `&demo` to fill the frames with
-sample artwork, and set `DEFAULT_THEME` in `config.js` to keep one.
-
-## Layout
-
-```
-index.html          the page: intro screen + the gallery interface
-css/style.css       all styling, including each theme's interface colours
-js/intro.js         the opening title screen and the transition into the hall
-js/gallery/
-  main.js           entry point: input, movement, camera, the frame loop
-  config.js         your details, the projects, room proportions
-  themes.js         the six looks
-  world.js          builds the hall: floor, walls, frames, lighting, railing
-  character.js      the visitor and the trail they leave
-  textures.js       every surface, drawn in code onto canvases
-  ui.js             the menu, the project panel, the on-screen controls
-assets/projects/    project videos and their poster frames
-assets/paintings/   drop image files here to use photos instead of video
-```
-
-Built with [Three.js](https://threejs.org) and [GSAP](https://gsap.com), both
-loaded from a CDN. No build step and no dependencies to install.
