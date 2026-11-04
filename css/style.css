@@ -573,6 +573,9 @@ body.menu-open .menu-side { opacity: 1; transform: none; transition: opacity 0.9
   .panel {
     left: var(--gutter); right: var(--gutter); top: auto; bottom: var(--gutter);
     width: auto; transform: none;
+    /* Stop short of the name and menu button, so the close button never ends up
+       underneath them (the menu sits above the panel and would steal the tap) */
+    max-height: calc(100dvh - var(--gutter) * 2 - 4.25rem);
   }
   .panel-title { font-size: calc(clamp(1.9rem, 8vw, 2.6rem) * var(--title-scale)); margin-bottom: 0.5rem; }
   .panel-desc { font-size: calc(0.86rem * var(--body-scale)); line-height: 1.65; margin-top: 0.8rem; }
