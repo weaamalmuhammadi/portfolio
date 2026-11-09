@@ -95,12 +95,13 @@ export const PROJECTS = [
   {
     title: 'Simple Game', category: 'Web App', year: '2026',
     tech: ['React', 'Phaser', 'Vite', 'Canvas API'],
-    desc: 'A game builder for children, where their own drawings become the game. Upload a player, the ground, a goal and an enemy, press Start, and the platformer is playable in the browser a second later — physics, enemies, winning and losing included.',
+    desc: 'A browser-based game builder that turns children’s drawings into playable platformer games. Children can draw their own characters, enemies, platforms and goals, then bring them to life in an interactive game — no coding required.',
     highlights: [
-      'Cuts each drawing off the paper with a hand-written Canvas routine — no AI model, no library — clearing inward from the edges so white areas inside the drawing survive, and allowing for uneven light on the page',
-      'When there is no clear background to remove, it keeps the original drawing and says so rather than damaging it',
-      'The game runs on the same page as the builder, so a new drawing is one press away from being played',
-      'Nothing leaves the device — the drawings are processed in the browser and never uploaded — and it reads in English or Arabic, with a full right-to-left layout and day and night themes',
+      'Drawing-to-game: converts children’s drawings into playable game assets',
+      'Custom background removal: a hand-written Canvas algorithm lifts the drawing off the paper, preserving the details and handling uneven lighting — without AI or external libraries',
+      'Instant gameplay: generates and runs the game directly within the browser',
+      'Privacy-first: processes all drawings locally, without uploading them',
+      'Bilingual interface: supports Arabic (RTL) and English, with light and dark themes',
     ],
     poster: 'assets/projects/project-03.jpg',
     video: 'assets/projects/project-03.mp4',
