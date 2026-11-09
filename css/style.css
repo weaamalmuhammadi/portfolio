@@ -343,13 +343,19 @@ body.panel-open .scrim { opacity: 1; }
   left: calc(var(--gutter) * 2); top: 50%; transform: translateY(-46%);
   width: min(430px, 38vw); color: var(--ink);
   pointer-events: none;
+  /* Closed, the panel must not paint anything at all. Its text is still in the
+     DOM (it fades, it isn't deleted), so without this the scroll box kept its
+     scrollbar and left a bar hanging in the middle of the hall. Visibility
+     flips only after the text has finished fading out. */
+  visibility: hidden;
+  transition: visibility 0s linear 0.45s;
   /* A project with a lot to say scrolls rather than running off a short screen */
   max-height: calc(100dvh - var(--gutter) * 2);
   overflow-y: auto; overscroll-behavior: contain;
   scrollbar-width: thin; scrollbar-color: rgb(var(--ink-rgb) / 0.25) transparent;
   padding-top: 2.8rem;   /* room for the close button, which sits inside the scroll box */
 }
-.panel.visible { pointer-events: auto; }
+.panel.visible { pointer-events: auto; visibility: visible; transition-delay: 0s; }
 .panel::-webkit-scrollbar { width: 6px; }
 .panel::-webkit-scrollbar-track { background: transparent; }
 .panel::-webkit-scrollbar-thumb { background: rgb(var(--ink-rgb) / 0.25); border-radius: 3px; }
