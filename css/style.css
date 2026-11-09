@@ -151,7 +151,8 @@ button { font: inherit; color: inherit; }
 
 .ci-name {
   font-family: var(--intro-serif);
-  font-size: clamp(5.5rem, 17vw, 10.5rem);
+  /* Sized for the full name on one line — a shorter name can take more */
+  font-size: clamp(2.2rem, 7.2vw, 5.6rem);
   font-weight: 900; letter-spacing: -0.025em; line-height: 0.9;
   color: #fff; margin-bottom: 1.6rem; display: block;
   overflow: hidden; padding-bottom: 0.06em;
@@ -595,6 +596,10 @@ body.menu-open .menu-side { opacity: 1; transform: none; transition: opacity 0.9
 
 @media (max-width: 560px) {
   .brand-role { display: none; }
+  /* Keep the full name on one line next to the menu button */
+  .brand-name { font-size: calc(1.15rem * var(--title-scale)); }
+  /* ...and the address on one line, rather than breaking inside "gmail.com" */
+  .panel-mail { font-size: calc(1.05rem * var(--title-scale)); }
   .controls .ctrl:nth-child(3) { display: none; }
 }
 

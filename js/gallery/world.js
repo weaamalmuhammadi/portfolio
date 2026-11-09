@@ -751,11 +751,11 @@ function addMarkers(scene, world) {
   });
 
   const ct = LAYOUT.contact;
-  const label = 'GET IN TOUCH · SAY HELLO · GET IN TOUCH · SAY HELLO · ';
+  const label = 'ABOUT ME · SAY HELLO · ABOUT ME · SAY HELLO · ';
   place(ct.x, ct.z, ct.r, TX.makeMarkerTexture({ seed: 9, label }), {
     kind: 'contact',
     index: ARTWORKS.length,
-    title: 'Get in touch',
+    title: 'About me',
     facing: Math.PI,
     tagY: 3.4,
     view: {

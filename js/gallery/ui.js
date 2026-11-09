@@ -67,8 +67,8 @@ export function createUI(handlers) {
       <li style="--i:${ARTWORKS.length}">
         <button class="menu-item menu-item--contact" type="button" data-target="${ARTWORKS.length}">
           <span class="menu-num">—</span>
-          <span class="menu-title">Get in touch</span>
-          <span class="menu-meta">Say hello</span>
+          <span class="menu-title">About me</span>
+          <span class="menu-meta">And how to reach me</span>
           <span class="menu-go">Walk there ${ARROW}</span>
         </button>
       </li>`;
@@ -188,12 +188,15 @@ export function createUI(handlers) {
   function showContact() {
     const socials = CONTACT.socials.map((s) =>
       `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join('');
+    // The same paragraphs that are painted on the back wall behind this circle
+    const bio = SITE.bio.map((p) => `<p class="panel-desc reveal">${esc(p)}</p>`).join('');
     reveal(`
       <button type="button" class="panel-close" data-close aria-label="Close details">×</button>
       <span class="panel-rule reveal"></span>
-      <span class="panel-index reveal">Get in touch</span>
-      <h2 class="panel-title reveal">Let’s build something together</h2>
-      <p class="panel-desc reveal">Have a project, a job offer, or just want to say hi? Drop me a line — I read every message.</p>
+      <span class="panel-index reveal">About</span>
+      <h2 class="panel-title reveal">${esc(SITE.name)}</h2>
+      <div class="panel-meta reveal"><span>${esc(SITE.role)}</span></div>
+      ${bio}
       <div class="panel-email reveal">
         <a class="panel-mail" href="${esc(mailtoHref())}">${esc(CONTACT.email)}${ARROW}</a>
         <button type="button" class="panel-copy" data-copy>Copy</button>

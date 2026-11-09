@@ -31,13 +31,14 @@ export const DEMO_ART = params.has('demo');
    SITE & CONTACT
    ============================================= */
 export const SITE = {
-  name: 'Weaam',
+  name: 'Weaam Almuhammadi',
   role: 'Game Developer & Programmer',
-  // Painted on the back wall of the hall — keep it to 2–3 short paragraphs.
+  // Painted on the back wall of the hall, and shown in the About circle at the
+  // end — keep it to 2–3 short paragraphs.
   bio: [
-    'Weaam is a game developer and programmer who builds worlds, engines and the tools behind them.',
-    'Every piece in this hall started as a question — how does it feel, how does it move, how does it break — and ended as something you can play.',
-    'Take your time. Step into a circle to look closer.',
+    'I build interactive experiences at the intersection of creativity and technology.',
+    'Curious by nature, I enjoy exploring how things work, solving unexpected challenges, and experimenting with new ways to bring ideas to life.',
+    'Every project is an opportunity to explore, create, and make something meaningful.',
   ],
 };
 
