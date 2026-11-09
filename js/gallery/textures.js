@@ -885,14 +885,15 @@ export function drawBackPanel(cv, site) {
     for (let i = 0; i < 14; i++) c.fillRect(L + 6 + i * 44, y0 - 10, 28, 28);
   }
 
-  // Paragraphs
+  // Paragraphs — this is the only place the bio is spelled out, so it is set
+  // large enough to read from the middle of the hall.
   c.fillStyle = P.wallBody;
-  c.font = font('body', 52);
-  let y = 690;
+  c.font = font('body', 66);
+  let y = 650;
   site.bio.forEach((para) => {
     const text = style === 'terminal' ? `> ${para}` : para;
-    wrapLines(c, text, W - L * 2).forEach((line) => { c.fillText(line, L, y); y += 82 * bodyScale; });
-    y += 44;
+    wrapLines(c, text, W - L * 2).forEach((line) => { c.fillText(line, L, y); y += 98 * bodyScale; });
+    y += 40;
   });
 
   // Nudge toward the contact circle

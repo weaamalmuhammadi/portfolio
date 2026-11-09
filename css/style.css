@@ -398,6 +398,13 @@ body.panel-open .scrim { opacity: 1; }
   margin: 0.35rem 0 0.8rem;
 }
 
+/* The contact panel's one line stands in for a heading, so it is set smaller
+   than a project title but still in the display face */
+.panel-title--lede {
+  font-size: calc(clamp(1.3rem, 2.5vw, 1.95rem) * var(--title-scale));
+  line-height: 1.35; max-width: 24ch;
+}
+
 .panel-meta {
   display: flex; align-items: center; gap: 0.7rem;
   font-family: var(--font-head); font-size: calc(0.78rem * var(--head-scale)); font-weight: 500;
@@ -585,6 +592,7 @@ body.menu-open .menu-side { opacity: 1; transform: none; transition: opacity 0.9
     max-height: calc(100dvh - var(--gutter) * 2 - 4.25rem);
   }
   .panel-title { font-size: calc(clamp(1.9rem, 8vw, 2.6rem) * var(--title-scale)); margin-bottom: 0.5rem; }
+  .panel-title--lede { font-size: calc(clamp(1.15rem, 4.6vw, 1.6rem) * var(--title-scale)); max-width: none; }
   .panel-desc { font-size: calc(0.86rem * var(--body-scale)); line-height: 1.65; margin-top: 0.8rem; }
   .panel-foot { margin-top: 1.2rem; }
   .panel-hint { display: none; }

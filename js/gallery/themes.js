@@ -237,11 +237,12 @@ export const THEMES = {
     },
     trail: { style: 'none' },
     blob: 0.5,
-    panelGlow: 0.5,
+    panelGlow: 0.72,   // the wall text carries its own light, so the lower
+                       // paragraphs stay readable past the spotlight's falloff
     paper: {
       bg: '#ece2cc', ink: '#1c1917', muted: '#6d6254', faint: '#9d9181',
       label: '#ece2cc', labelBorder: 'rgba(0,0,0,0.25)',
-      wallInk: '#e9dcc0', wallBody: '#b9ad97', ghost: 'rgba(28,25,23,0.08)', accent: '#c9a55a',
+      wallInk: '#e9dcc0', wallBody: '#dccfb2', ghost: 'rgba(28,25,23,0.08)', accent: '#c9a55a',
     },
     type: {
       title:    '600 {s}px "Cormorant Garamond", Georgia, serif',

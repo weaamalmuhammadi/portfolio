@@ -364,9 +364,9 @@ function addBackWallPanel(scene, world, aniso) {
 
   // One wide, soft wash over the whole wall — a single lamp, centred, so the
   // light reads as one pool instead of two overlapping ones.
-  const wash = new THREE.SpotLight(LIGHT.spotColor, LIGHT.spot * 2.2, 40, Math.PI / 4.4, 0.95, 1.1);
+  const wash = new THREE.SpotLight(LIGHT.spotColor, LIGHT.spot * 2.2, 40, Math.PI / 4.1, 0.95, 0.95);
   wash.position.set(0, HALL.panelY + 2.2, LAYOUT.backZ + 8);
-  wash.target.position.set(0, HALL.panelY - 0.4, LAYOUT.backZ);
+  wash.target.position.set(0, HALL.panelY - 1.5, LAYOUT.backZ);   // aimed low, so the last paragraph is lit too
   scene.add(wash, wash.target);
 }
 

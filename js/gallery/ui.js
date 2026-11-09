@@ -188,15 +188,13 @@ export function createUI(handlers) {
   function showContact() {
     const socials = CONTACT.socials.map((s) =>
       `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join('');
-    // The same paragraphs that are painted on the back wall behind this circle
-    const bio = SITE.bio.map((p) => `<p class="panel-desc reveal">${esc(p)}</p>`).join('');
+    // The bio itself is painted on the wall behind this circle — repeating it
+    // here just showed the same words twice, so the panel is the invitation.
     reveal(`
       <button type="button" class="panel-close" data-close aria-label="Close details">×</button>
       <span class="panel-rule reveal"></span>
-      <span class="panel-index reveal">About</span>
-      <h2 class="panel-title reveal">${esc(SITE.name)}</h2>
-      <div class="panel-meta reveal"><span>${esc(SITE.role)}</span></div>
-      ${bio}
+      <span class="panel-index reveal">Get in touch</span>
+      <h2 class="panel-title panel-title--lede reveal">Have a project, collaboration, or job opportunity? Feel free to reach out</h2>
       <div class="panel-email reveal">
         <a class="panel-mail" href="${esc(mailtoHref())}">${esc(CONTACT.email)}${ARROW}</a>
         <button type="button" class="panel-copy" data-copy>Copy</button>
