@@ -151,12 +151,17 @@ button { font: inherit; color: inherit; }
 
 .ci-name {
   font-family: var(--intro-serif);
-  /* Sized for the full name on one line — a shorter name can take more */
-  font-size: clamp(2.2rem, 7.2vw, 5.6rem);
+  font-size: clamp(2.2rem, 7.2vw, 5rem);
   font-weight: 900; letter-spacing: -0.025em; line-height: 0.9;
   color: #fff; margin-bottom: 1.6rem; display: block;
   overflow: hidden; padding-bottom: 0.06em;
+  /* The name is allowed to be wider than the rest of the intro column, so it
+     stays on one line on a laptop instead of splitting at the space */
+  width: max-content; max-width: min(90vw, 980px);
 }
+/* Each name is one unbreakable unit, so the line can only ever break at the
+   space between them — never inside "Weaam" or "Almuhammadi" */
+.ci-name-word { display: inline-block; white-space: nowrap; }
 .ci-name-letter { display: inline-block; color: #fff; opacity: 0; transform: translateY(105%); }
 .ci-name-tail   { display: inline-block; color: rgba(255,255,255,0.92); opacity: 0; transform: translateY(40px); }
 
@@ -344,19 +349,24 @@ body.panel-open .scrim { opacity: 1; }
   left: calc(var(--gutter) * 2); top: 50%; transform: translateY(-46%);
   width: min(430px, 38vw); color: var(--ink);
   pointer-events: none;
-  /* Closed, the panel must not paint anything at all. Its text is still in the
-     DOM (it fades, it isn't deleted), so without this the scroll box kept its
-     scrollbar and left a bar hanging in the middle of the hall. Visibility
-     flips only after the text has finished fading out. */
+  /* The panel's text is never deleted, only hidden, so the scroll box would
+     otherwise keep painting its scrollbar over the hall. Fading the panel
+     itself takes the scrollbar with it — fade them together, then drop the
+     whole thing out of the rendering the moment the fade ends. */
+  opacity: 0;
   visibility: hidden;
-  transition: visibility 0s linear 0.45s;
+  transition: opacity 0.26s var(--ease-out), visibility 0s linear 0.26s;
   /* A project with a lot to say scrolls rather than running off a short screen */
   max-height: calc(100dvh - var(--gutter) * 2);
   overflow-y: auto; overscroll-behavior: contain;
   scrollbar-width: thin; scrollbar-color: rgb(var(--ink-rgb) / 0.25) transparent;
   padding-top: 2.8rem;   /* room for the close button, which sits inside the scroll box */
 }
-.panel.visible { pointer-events: auto; visibility: visible; transition-delay: 0s; }
+.panel.visible {
+  pointer-events: auto;
+  opacity: 1; visibility: visible;
+  transition: opacity 0.3s var(--ease-out), visibility 0s;
+}
 .panel::-webkit-scrollbar { width: 6px; }
 .panel::-webkit-scrollbar-track { background: transparent; }
 .panel::-webkit-scrollbar-thumb { background: rgb(var(--ink-rgb) / 0.25); border-radius: 3px; }
